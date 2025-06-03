@@ -210,3 +210,4 @@ sb-cli-reports/
 trajectories_sft/
 
 logs/
+litellm/
