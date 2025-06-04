@@ -32,7 +32,7 @@ fi
 
 # Install the required packages using python -m pip for robustness
 echo "SWE-agent: install.sh - Installing tree-sitter packages..."
-$PYTHON_CMD -m pip install --no-cache-dir 'tree-sitter==0.21.3' || true
-$PYTHON_CMD -m pip install --no-cache-dir 'tree-sitter-languages' || true
+$PYTHON_CMD -m pip install --no-cache-dir 'tree-sitter==0.21.3'
+$PYTHON_CMD -m pip install --no-cache-dir 'tree-sitter-languages'
 
 echo "SWE-agent: install.sh - Script finished."
