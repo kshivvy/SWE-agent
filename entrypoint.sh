@@ -21,6 +21,7 @@ GEMINI_API_KEY=${GEMINI_API_KEY:?GEMINI_API_KEY is not set.}
 API_BASE=${API_BASE:-'https://generativelanguage.googleapis.com'}
 
 INSTANCES_TYPE=${INSTANCES_TYPE:-'swe_bench'}
+INSTANCES_SUBSET=${INSTANCES_SUBSET:-'lite'}
 INSTANCES_SPLIT=${INSTANCES_SPLIT:-'dev'}
 INSTANCES_SLICE=${INSTANCES_SLICE:-'0:1'}
 INSTANCES_SHUFFLE=${INSTANCES_SHUFFLE:-'False'}
@@ -29,6 +30,7 @@ echo 'MODEL_NAME: '${MODEL_NAME}''
 echo 'API_BASE: '${API_BASE}''
 
 echo 'INSTANCES_TYPE: '${INSTANCES_TYPE}''
+echo 'INSTANCES_SUBSET: '${INSTANCES_SUBSET}''
 echo 'INSTANCES_SPLIT: '${INSTANCES_SPLIT}''
 echo 'INSTANCES_SLICE: '${INSTANCES_SLICE}''
 echo 'INSTANCES_SHUFFLE: '${INSTANCES_SHUFFLE}''
@@ -40,6 +42,7 @@ sweagent run-batch \
     --agent.model.name "$MODEL_NAME" \
     --agent.model.api_key "$GEMINI_API_KEY" \
     --instances.type "$INSTANCES_TYPE"  \
+    --instances.subset "$INSTANCES_SUBSET" \
     --instances.split "$INSTANCES_SPLIT" \
     --instances.slice "$INSTANCES_SLICE" \
     --instances.shuffle "$INSTANCES_SHUFFLE" \
