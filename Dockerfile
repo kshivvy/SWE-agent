@@ -31,6 +31,11 @@ RUN pip install -e '.'
 # Install react dependencies ahead of time
 RUN cd sweagent/frontend && npm install
 
+# Create a trajectory directory. trajectories/ is included in the .gitignore
+# file, which is used as a default .gcloudignore file. Without an explicit
+# trajectories directory created, the Cloud Batch job will crash.
+RUN mkdir -p /app/trajectories
+
 # Copy the entrypoint script and make it executable
 COPY entrypoint.sh /app/entrypoint.sh
 RUN chmod +x /app/entrypoint.sh
