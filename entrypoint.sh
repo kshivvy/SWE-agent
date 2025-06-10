@@ -26,6 +26,12 @@ INSTANCES_SPLIT=${INSTANCES_SPLIT:-'dev'}
 INSTANCES_SLICE=${INSTANCES_SLICE:-'0:1'}
 INSTANCES_SHUFFLE=${INSTANCES_SHUFFLE:-'False'}
 
+# Create the directory to store trajectories.
+RUN_ID=${RUN_ID:-sweagent-$(date +%Y%m%d%H%M%S)}
+SHARD_ID=${SHARD_ID:-'0'}
+export SWE_AGENT_TRAJECTORY_DIR="./trajectories/${RUN_ID}/${SHARD_ID}"
+mkdir -p "${SWE_AGENT_TRAJECTORY_DIR}"
+
 echo 'MODEL_NAME: '${MODEL_NAME}''
 echo 'API_BASE: '${API_BASE}''
 
@@ -36,6 +42,11 @@ echo 'INSTANCES_SLICE: '${INSTANCES_SLICE}''
 echo 'INSTANCES_SHUFFLE: '${INSTANCES_SHUFFLE}''
 
 echo 'HF_HOME: '${HF_HOME}''
+echo 'HF_DATASETS_CACHE: '${HF_DATASETS_CACHE}''
+
+echo 'RUN_ID: '${RUN_ID}''
+echo 'SHARD_ID: '${SHARD_ID}''
+echo 'SWE_AGENT_TRAJECTORY_DIR: '${SWE_AGENT_TRAJECTORY_DIR}''
 
 # Run evaluation. See README at
 # https://github.com/SWE-agent/SWE-agent/blob/main/docs/usage/batch_mode.md#a-first-example-swe-bench.
@@ -49,4 +60,4 @@ sweagent run-batch \
     --instances.slice "$INSTANCES_SLICE" \
     --instances.shuffle "$INSTANCES_SHUFFLE" \
     --agent.model.api_base "$API_BASE" \
-    --agent.model.per_instance_cost_limit 0.0 #
+    --agent.model.per_instance_cost_limit 0.0
