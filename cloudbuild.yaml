@@ -1,7 +1,0 @@
-steps:
-- name: 'gcr.io/cloud-builders/docker'
-  script: |
-    DOCKER_BUILDKIT=1 docker build -t 'us-central1-docker.pkg.dev/docker-rlef-exploration/sweagent-repo/sweagent-image:sweagent-v0' .
-  automapSubstitutions: true
-images:
-- 'us-central1-docker.pkg.dev/docker-rlef-exploration/sweagent-repo/sweagent-image:sweagent-v0'
