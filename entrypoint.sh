@@ -35,6 +35,8 @@ echo 'INSTANCES_SPLIT: '${INSTANCES_SPLIT}''
 echo 'INSTANCES_SLICE: '${INSTANCES_SLICE}''
 echo 'INSTANCES_SHUFFLE: '${INSTANCES_SHUFFLE}''
 
+echo 'HF_HOME: '${HF_HOME}''
+
 # Run evaluation. See README at
 # https://github.com/SWE-agent/SWE-agent/blob/main/docs/usage/batch_mode.md#a-first-example-swe-bench.
 sweagent run-batch \
