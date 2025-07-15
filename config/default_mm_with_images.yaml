@@ -78,6 +78,3 @@ agent:
 instances:
   type: swe_bench
   subset: multimodal
-  split: dev
-  shuffle: true
-  # filter: processing__p5.js-6069
