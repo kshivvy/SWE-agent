@@ -54,13 +54,13 @@ dependencies = [
     "pydantic",
     "python-dotenv",
     "pydantic_settings",
-    "litellm",
     "GitPython",
     "ghapi",
     "swe-rex>=1.2.0",
     "tabulate",
     "textual>=1.0.0",
     "requests",
+    "google-cloud-aiplatform",
 ]
 
 [project.scripts]
