@@ -64,6 +64,6 @@ agent:
     enable_bash_tool: true
     parse_function:
       type: function_calling
-  history_processors:
-    - type: cache_control
-      last_n_messages: 2
+  # history_processors:  
+  #   - type: cache_controls # enable for claude
+  #     last_n_messages: 2 # enable for claude
