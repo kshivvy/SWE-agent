@@ -211,3 +211,6 @@ trajectories_sft/
 
 # Modified LiteLLM installation.
 litellm/
+
+# SWE-Bench installation.
+SWE-bench/
