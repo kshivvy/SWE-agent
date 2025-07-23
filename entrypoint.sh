@@ -67,20 +67,20 @@ echo 'SCORE_USING_SWE_BENCH: '${SCORE_USING_SWE_BENCH}''
 
 # Run evaluation. See README at
 # https://github.com/SWE-agent/SWE-agent/blob/main/docs/usage/batch_mode.md#a-first-example-swe-bench.
-# sweagent run-batch \
-#     --config "$CONFIG" \
-#     --agent.model.name "$MODEL_NAME" \
-#     --agent.model.api_key "$GEMINI_API_KEY" \
-#     --agent.model.max_input_tokens $MAX_INPUT_TOKENS \
-#     --agent.model.max_output_tokens $MAX_OUTPUT_TOKENS \
-#     --instances.type "$INSTANCES_TYPE"  \
-#     --instances.subset "$INSTANCES_SUBSET" \
-#     --instances.split "$INSTANCES_SPLIT" \
-#     --instances.slice "$INSTANCES_SLICE" \
-#     --instances.shuffle "$INSTANCES_SHUFFLE" \
-#     --agent.model.api_base "$API_BASE" \
-#     --agent.model.per_instance_call_limit $PER_INSTANCE_CALL_LIMIT \
-#     --agent.model.per_instance_cost_limit 0.0
+sweagent run-batch \
+    --config "$CONFIG" \
+    --agent.model.name "$MODEL_NAME" \
+    --agent.model.api_key "$GEMINI_API_KEY" \
+    --agent.model.max_input_tokens $MAX_INPUT_TOKENS \
+    --agent.model.max_output_tokens $MAX_OUTPUT_TOKENS \
+    --instances.type "$INSTANCES_TYPE"  \
+    --instances.subset "$INSTANCES_SUBSET" \
+    --instances.split "$INSTANCES_SPLIT" \
+    --instances.slice "$INSTANCES_SLICE" \
+    --instances.shuffle "$INSTANCES_SHUFFLE" \
+    --agent.model.api_base "$API_BASE" \
+    --agent.model.per_instance_call_limit $PER_INSTANCE_CALL_LIMIT \
+    --agent.model.per_instance_cost_limit 0.0
 
 if [ "${SCORE_USING_SWE_BENCH,,}" == "False" ]; then
     echo "Skipping scoring as per SCORE_USING_SWE_BENCH setting."
