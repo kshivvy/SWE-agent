@@ -33,6 +33,10 @@ ENV PATH $PATH:/root/google-cloud-sdk/bin
 RUN git clone https://github.com/kshivvy/litellm.git && cd litellm && git checkout b9ed97c
 RUN pip install -e ./litellm
 
+# Install SweBench (v4.0.4) from source. Used for scoring.
+RUN git clone https://github.com/SWE-bench/SWE-bench.git && cd SWE-bench && git checkout c7c22a9
+RUN pip install -e ./SWE-bench
+
 # Copy only the files needed for Python dependency installation.
 COPY pyproject.toml README.md ./
 
