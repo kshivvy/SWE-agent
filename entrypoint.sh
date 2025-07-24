@@ -19,7 +19,7 @@ gcloud auth list
 ACTIVE_ACCOUNT=$(gcloud config get-value account)
 echo "Active Account for Task: ${ACTIVE_ACCOUNT}"
 
-MODEL_NAME=${MODEL:-'gemini/gemini-2.5-flash'}
+MODEL_NAME=${MODEL:-'gemini/gemini-2.5-pro'}
 GEMINI_API_KEY=${GEMINI_API_KEY:?GEMINI_API_KEY is not set.}
 API_BASE=${API_BASE:-'https://generativelanguage.googleapis.com'}
 
@@ -82,8 +82,8 @@ sweagent run-batch \
     --agent.model.per_instance_call_limit $PER_INSTANCE_CALL_LIMIT \
     --agent.model.per_instance_cost_limit 0.0
 
-if [ "${SCORE_USING_SWE_BENCH,,}" == "False" ]; then
-    echo "Skipping scoring as per SCORE_USING_SWE_BENCH setting."
+if [[ "${SCORE_USING_SWE_BENCH,,}" == "false" || "${INSTANCES_SUBSET}" == "multimodal" ]]; then
+    echo "Skipping scoring using SWE-bench as per configuration."
     exit 0
 fi
 
